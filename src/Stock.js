@@ -90,7 +90,7 @@ class Stock extends React.Component {
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
                 <p>From: { this.state.stockChartXvalues[0] } - To: { this.state.stockChartXvalues.slice(-1)[0] } </p>
                 <ScrollText style={{backgroundColor: "black"}}>
-                     <h3 style={{color: "red"}}> { this.state.stockChartYvaluesSeparated } </h3>
+                     <h4 style={{color: "red"}}> { this.state.stockChartYvaluesSeparated } </h4>
                 </ScrollText>
                 <Plot
                     data={[
