@@ -1,7 +1,8 @@
 import  React from 'react';
-// import Plot from 'react-plotly.js';
 import createPlotlyComponent from 'react-plotly.js/factory';
 import Plotly from 'plotly.js';
+import ScrollText from 'react-scroll-text';
+
 
 const Plot = createPlotlyComponent(Plotly);
 
@@ -27,9 +28,6 @@ class Stock extends React.Component {
         let STOCK_SYMBOL = 'FB';
         //MSFT , GOOGL, IBM, TSCO.LON, AMZN, FB
         let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${STOCK_SYMBOL}&outputsize=compact&apikey=${API_KEY}`;
-        // let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${STOCK_SYMBOL}&apikey=${API_KEY}`
-        // let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${STOCK_SYMBOL}&outputsize=compact&apikey=${API_KEY}`
-        // let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=TSCO.LON&outputsize=full&apikey=${API_KEY}`
         let stockChartXvaluesFn = [];
         let stockChartYvaluesFn = [];
 
@@ -48,8 +46,8 @@ class Stock extends React.Component {
                 }
 
                 pointerToThis.setState({
-                    stockChartXvalues:  stockChartXvaluesFn,
-                    stockChartYvalues:  stockChartYvaluesFn,
+                    stockChartXvalues: stockChartXvaluesFn,
+                    stockChartYvalues: stockChartYvaluesFn,
                     stockSymbol: STOCK_SYMBOL,
                     stockChartYvaluesSeparated: stockChartYvaluesFn.join(' || ')
                 });
@@ -62,8 +60,10 @@ class Stock extends React.Component {
                 <h1>Stock Market</h1>
                 Company: {this.state.stockSymbol}
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
-                <p>From: { this.state.stockChartXvalues.slice(-1)[0] } To: { this.state.stockChartXvalues[0] } </p>
-                {/*<p> {this.state.stockChartYvaluesSeparated} </p>*/}
+                <p>From: { this.state.stockChartXvalues.slice(-1)[0] } - To: { this.state.stockChartXvalues[0] } </p>
+                <ScrollText style={{backgroundColor: "black"}}>
+                     <h3 style={{color: "red"}}> {this.state.stockChartYvaluesSeparated} </h3>
+                </ScrollText>
                 <Plot
                     data={[
                         {
@@ -75,7 +75,7 @@ class Stock extends React.Component {
                         },
                         // {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
                     ]}
-                    layout={{width: 730, height: 440, title: 'A Fancy Plot'}}
+                    layout={{width: 500, height: 440, title: 'Stock Market Plot'}}
                 />
             </div>
         )
