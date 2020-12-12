@@ -15,11 +15,19 @@ class Stock extends React.Component {
             stockSymbol: [],
             stockChartYvaluesSeparated: []
         }
+        // this.onChangestockSymbol =  this.onChangestockSymbol.bind(this);
+
     }
 
     componentDidMount() {
         this.fetchStock();
     }
+
+/*    onChangestockSymbol(e){
+        this.setState({
+            stockSymbol : e.target.value
+        })
+    }*/
 
     //fetch stock
     fetchStock() {
@@ -60,6 +68,25 @@ class Stock extends React.Component {
             <div>
                 <h1>Stock Market</h1>
                 Company: {this.state.stockSymbol}
+{/*                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label>stockSymbol: </label>
+                        <select
+                            // ref={this.userInput}
+                            // ref={this.setTextInputRef}
+                            createref="userInput"
+                            required
+                            className="form-control"
+                            value={this.state.stockSymbol}
+                            onChange={this.onChangestockSymbol}>
+
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Create Exercise Log" className="btn btn-primary"/>
+                    </div>
+
+                </form>*/}
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
                 <p>From: { this.state.stockChartXvalues[0] } - To: { this.state.stockChartXvalues.slice(-1)[0] } </p>
                 <ScrollText style={{backgroundColor: "black"}}>
@@ -76,7 +103,7 @@ class Stock extends React.Component {
                         },
                         // {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
                     ]}
-                    layout={{width: 1000, height: 440, title: 'Stock Market Plot'}}
+                    layout={{width: 500, height: 440, title: 'Stock Market Plot'}}
                 />
             </div>
         )
