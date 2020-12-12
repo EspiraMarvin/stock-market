@@ -63,7 +63,7 @@ class Stock extends React.Component {
                 Company: {this.state.stockSymbol}
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
                 <p>From: { this.state.stockChartXvalues.slice(-1)[0] } To: { this.state.stockChartXvalues[0] } </p>
-                <p> {this.state.stockChartYvaluesSeparated} </p>
+                {/*<p> {this.state.stockChartYvaluesSeparated} </p>*/}
                 <Plot
                     data={[
                         {
