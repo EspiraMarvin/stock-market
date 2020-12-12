@@ -12,7 +12,8 @@ class Stock extends React.Component {
         this.state = {
             stockChartXvalues: [],
             stockChartYvalues: [],
-            stockSymbol: []
+            stockSymbol: [],
+            stockChartYvaluesSeparated: []
         }
     }
 
@@ -60,9 +61,9 @@ class Stock extends React.Component {
                 <h1>Stock Market</h1>
                 Company: {this.state.stockSymbol}
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
-                <p>From: { this.state.stockChartXvalues.slice(-1)[0] } - To: { this.state.stockChartXvalues[0] } </p>
+                <p>From: { this.state.stockChartXvalues[0] } - To: { this.state.stockChartXvalues.slice(-1)[0] } </p>
                 <ScrollText style={{backgroundColor: "black"}}>
-                     <h3 style={{color: "red"}}> {this.state.stockChartYvaluesSeparated} </h3>
+                     <h3 style={{color: "red"}}> { this.state.stockChartYvaluesSeparated } </h3>
                 </ScrollText>
                 <Plot
                     data={[
@@ -75,7 +76,7 @@ class Stock extends React.Component {
                         },
                         // {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
                     ]}
-                    layout={{width: 500, height: 440, title: 'Stock Market Plot'}}
+                    layout={{width: 1000, height: 440, title: 'Stock Market Plot'}}
                 />
             </div>
         )
