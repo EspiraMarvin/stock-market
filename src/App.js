@@ -3,7 +3,7 @@ import Stock from './Stock'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Stock />
     </div>
   );

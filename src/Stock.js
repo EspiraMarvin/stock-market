@@ -65,7 +65,7 @@ class Stock extends React.Component {
 
     render() {
         return(
-            <div className="container col s12">
+            <div>
                 <h1>Stock Market</h1>
                 Company: {this.state.stockSymbol}
 {/*                <form onSubmit={this.onSubmit}>
