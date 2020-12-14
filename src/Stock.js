@@ -65,7 +65,7 @@ class Stock extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="container col s12">
                 <h1>Stock Market</h1>
                 Company: {this.state.stockSymbol}
 {/*                <form onSubmit={this.onSubmit}>
@@ -90,7 +90,7 @@ class Stock extends React.Component {
                 <p>Period: { this.state.stockChartXvalues.length } days</p>
                 <p>From: { this.state.stockChartXvalues[0] } - To: { this.state.stockChartXvalues.slice(-1)[0] } </p>
                 <ScrollText style={{backgroundColor: "black"}}>
-                     <h4 style={{color: "red"}}> { this.state.stockChartYvaluesSeparated } </h4>
+                    <h6 style={{color: "red"}}><b> { this.state.stockChartYvaluesSeparated } </b></h6>
                 </ScrollText>
                 <Plot
                     data={[
